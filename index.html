@@ -6,10 +6,59 @@
     <script src="js/assignment.js"></script>
   </head>
   <body>
-    <h1>JavaScript</h1>
-    <form class="" action="index.html" method="post">
-      <label for="EnterW">Enter a String</label>
-      <input type="text" name="EnterW" id="EnterW">
-    </form>
+    <h1 style="text-align: center;">JavaScript</h1>
+    <div class="">
+      <h2>Assignment7 Qustion 1</h2>
+      <p> Write a JavaScript function which accept a string as input and swap the case of each character.
+        <br/> For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'.</p>
+        <div><strong>String:</strong></div>
+        <input type="text" name="" id="input" value="The Quick Brown Fox"><button id="submit">ок</button>
+        <div id="result"></div>
+
+
+    </div><br><hr>
+        <h2>Assignment7 Qustion 3</h2>
+          <p>Write a JavaScript program which accept a number as input and insert dashes (-) between each two even numbers.
+            <br/> For example if you accept 025468 the output should be 0-254-6-8</p>
+            <div><strong>Numbers:</strong></div>
+              <input type="text" name="" id="input" value="025468"><button id="submit">ок</button>
+              <div id="result"></div>
+    <script>
+    (function() {
+// DOM
+var submit = document.getElementById('submit'),
+input = document.getElementById('input'),
+result = document.getElementById('result');
+
+// listeners
+submit.addEventListener('click',function() { dashApp.init(input,result) });
+input.addEventListener('focus', function() { this.value = "" });
+
+// app
+var dashApp = {
+// dashes between even numbers
+dashes: function(arr) {
+    var counter = arr.length,
+        temp = [];
+    for (var i = 0; i < counter; i++) {
+        temp.push(arr[i]);
+        if (arr[i] % 2 == 0 && arr[i+1] % 2 == 0) {
+            temp.push('-');
+        }
+    }
+    return temp.join('');
+},
+
+// init
+init: function(input,output) {
+    var arr = input.value.split('');
+    output.innerHTML = dashApp.dashes(arr);
+}
+}
+})();
+      </script>
   </body>
 </html>
+
+
+(40 points) Write a JavaScript function to get the last element of an array. Passing a parameter 'n' will return the last 'n' elements of the array.
